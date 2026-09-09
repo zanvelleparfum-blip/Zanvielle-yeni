@@ -57,6 +57,15 @@ body{font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
  touch-action:manipulation;-webkit-tap-highlight-color:transparent;
 }
 .shopier-top-link:hover{background:rgba(0,12,12,.9);box-shadow:0 0 15px rgba(231,201,120,.5)}
+.video-ui{display:none;position:absolute;inset:0;z-index:8;pointer-events:none}
+.page.has-main-video .video-ui{display:block}
+.video-ui-btn{position:absolute;width:44px;height:44px;border:1px solid rgba(231,201,120,.9);border-radius:50%;background:rgba(0,0,0,.42);color:var(--cream);display:grid;place-items:center;pointer-events:auto;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;box-shadow:0 0 9px rgba(231,201,120,.28)}
+.video-ui-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.video-ui-menu{left:3.5%;top:2.15%}
+.video-ui-cart{left:78%;top:2.15%}
+.video-ui-account{left:89%;top:2.15%}
+.video-ui-badge{position:absolute;left:84.6%;top:2.15%;min-width:19px;height:19px;padding:0 5px;border:1px solid var(--gold);border-radius:999px;background:#061817;color:var(--gold);font:700 10px/17px Arial,sans-serif;text-align:center;box-shadow:0 0 10px rgba(231,201,120,.55);pointer-events:none}
+
 @media (max-width:520px){.shopier-top-link{right:3%;top:9.1%;font-size:9px;padding:7px 9px;min-height:34px}}
 .collection-trigger{
  position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);z-index:7;
@@ -170,6 +179,12 @@ body{font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
 <button class="hotspot cart-hotspot" id="cartBtn" aria-label="Sepeti aç"></button>
 <span id="cartBadge" class="cart-badge" aria-label="Sepetteki ürün adedi">0</span>
 <button class="hotspot account-hotspot" id="accountBtn" aria-label="Hesabı aç"></button>
+<div class="video-ui" aria-hidden="false">
+<button class="video-ui-btn video-ui-menu" id="videoMenuBtn" aria-label="Menüyü aç"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+<button class="video-ui-btn video-ui-cart" id="videoCartBtn" aria-label="Sepeti aç"><svg viewBox="0 0 24 24"><path d="M3 5h2l2.1 10.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/></svg></button>
+<span id="videoCartBadge" class="video-ui-badge">0</span>
+<button class="video-ui-btn video-ui-account" id="videoAccountBtn" aria-label="Hesabı aç"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg></button>
+</div>
 <a class="shopier-top-link" href="https://www.shopier.com/parfumzanvielle" target="_blank" rel="noopener noreferrer" aria-label="Shopier mağazasından alışveriş yap">SHOPIER’DEN ALIŞVERİŞ</a>
 <button class="collection-trigger" id="collectionBtn" type="button">KOLEKSİYONU KEŞFET</button>
 </main>
@@ -2145,7 +2160,7 @@ function sanitizeCart(){
 sanitizeCart();
 let cartToastTimer;
 function cartCount(){return Object.values(cart).reduce((sum,q)=>sum+(Number(q)||0),0)}
-function updateCartBadge(){const b=$('#cartBadge');if(b)b.textContent=cartCount();}
+function updateCartBadge(){const n=cartCount();const b=$('#cartBadge');if(b)b.textContent=n;const vb=$('#videoCartBadge');if(vb)vb.textContent=n;}
 function showCartToast(message){const t=$('#cartToast');if(!t)return;t.textContent=message;t.classList.add('show');clearTimeout(cartToastTimer);cartToastTimer=setTimeout(()=>t.classList.remove('show'),1800);}
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
@@ -2267,6 +2282,12 @@ function renderCart(){
 document.getElementById('menuBtn').onclick=()=>openPanel('#menuOverlay');
 document.getElementById('cartBtn').onclick=()=>{renderCart();openPanel('#cartOverlay')};
 document.getElementById('accountBtn').onclick=()=>openPanel('#accountOverlay');
+const videoMenuBtn=document.getElementById('videoMenuBtn');
+const videoCartBtn=document.getElementById('videoCartBtn');
+const videoAccountBtn=document.getElementById('videoAccountBtn');
+if(videoMenuBtn)videoMenuBtn.onclick=()=>openPanel('#menuOverlay');
+if(videoCartBtn)videoCartBtn.onclick=()=>{renderCart();openPanel('#cartOverlay')};
+if(videoAccountBtn)videoAccountBtn.onclick=()=>openPanel('#accountOverlay');
 const collectionBtn=document.getElementById('collectionBtn');
 function openCollectionNow(e){if(e){e.preventDefault();e.stopPropagation();}openPanel('#collectionOverlay');}
 collectionBtn.addEventListener('pointerup',openCollectionNow,{passive:false});
@@ -2404,7 +2425,9 @@ function renderAdminProducts(){
 }
 function openAdminProduct(id){
  adminEditId=id; const p=PRODUCTS.find(x=>x.id===id); if(!p)return;
- $('#adminProductEditor').style.display='block';
+ const editor=$('#adminProductEditor'); const listEl=$('#adminProductList');
+ if(editor&&listEl&&editor.parentNode===listEl.parentNode){ listEl.parentNode.insertBefore(editor,listEl); }
+ editor.style.display='block';
  $('#adminProductEditor').innerHTML=`<h3 style="margin:0 0 12px;color:var(--gold)">ÜRÜNÜ DÜZENLE — #${p.id}</h3>
  <div class="admin-field"><label>ÜRÜN ADI</label><input id="apName" value="${esc(p.name)}"></div>
  <div class="admin-field"><label>KATEGORİ</label><select id="apCategory">${['Kadın','Erkek','Unisex','Losyonlar'].map(c=>`<option ${p.category===c?'selected':''}>${c}</option>`).join('')}</select></div>
