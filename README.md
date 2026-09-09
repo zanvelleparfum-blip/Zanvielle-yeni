@@ -1,2 +1,0 @@
-# Zanvielle-yeni
-Zanviellewebyeni 
