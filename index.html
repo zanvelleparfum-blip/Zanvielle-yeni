@@ -2022,8 +2022,30 @@ const money=n=>new Intl.NumberFormat('tr-TR',{style:'currency',currency:'TRY',ma
 function closeAll(){document.querySelectorAll('.overlay').forEach(x=>x.classList.remove('open'));document.body.style.overflow=''}
 function openPanel(id){closeAll();$(id).classList.add('open');document.body.style.overflow='hidden'}
 function getList(cat){
- return PRODUCTS.filter(p=>p.visible!==false && (cat==='Tümü'||p.category===cat));
+ return PRODUCTS
+   .map((p,index)=>({p,index}))
+   .filter(x=>x.p.visible!==false && (cat==='Tümü'||x.p.category===cat))
+   .sort((a,b)=>{
+     const aSold=Number(a.p.stock)<=0;
+     const bSold=Number(b.p.stock)<=0;
+     if(aSold!==bSold)return Number(aSold)-Number(bSold);
+     return a.index-b.index;
+   })
+   .map(x=>x.p);
 }
+
+// Stok durumu değiştiğinde katalog sıralamasını otomatik yeniler.
+let stockOrderSignature='';
+function getStockOrderSignature(){
+ return PRODUCTS.map(p=>`${p.id}:${Number(p.stock)<=0?'0':'1'}`).join('|');
+}
+function refreshStockOrder(){
+ const next=getStockOrderSignature();
+ if(next===stockOrderSignature)return;
+ stockOrderSignature=next;
+ if(document.querySelector('#shopOverlay.open'))renderProducts();
+}
+setInterval(refreshStockOrder,500);
 function renderFilters(){
  const cats=['Tümü','Kadın','Erkek','Unisex','Losyonlar'];
  $('#filters').innerHTML=cats.map(c=>`<button class="filter ${c===activeCategory?'active':''}" data-filter="${esc(c)}">${esc(c)}</button>`).join('');
@@ -2132,6 +2154,7 @@ document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
 document.querySelectorAll('[data-shop]').forEach(b=>b.addEventListener('click',()=>{activeCategory=b.dataset.shop;renderProducts();openPanel('#shopOverlay')}));
 updateCartBadge();
+stockOrderSignature=getStockOrderSignature();
 renderCart();
 </script>
 
