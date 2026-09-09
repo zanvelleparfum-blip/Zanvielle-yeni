@@ -43,6 +43,18 @@ body{font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
 .cart-hotspot{left:78%;top:2.2%;width:8.5%;height:5.8%}
 .account-hotspot{left:89%;top:2.2%;width:8.5%;height:5.8%}
 .cart-badge{position:absolute;left:84.6%;top:2.15%;z-index:8;min-width:19px;height:19px;padding:0 5px;border:1px solid var(--gold);border-radius:999px;background:#061817;color:var(--gold);font:700 10px/17px Arial,sans-serif;text-align:center;box-shadow:0 0 10px rgba(231,201,120,.55);pointer-events:none}
+.shopier-top-link{
+ position:absolute;right:3.5%;top:9.2%;z-index:7;
+ min-height:36px;padding:8px 12px;
+ border:1px solid rgba(231,201,120,.9);border-radius:2px;
+ background:rgba(0,12,12,.72);color:var(--cream);
+ font:700 10px/1.1 Arial,sans-serif;letter-spacing:.08em;
+ text-decoration:none;text-align:center;
+ box-shadow:0 0 9px rgba(231,201,120,.28);
+ touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+}
+.shopier-top-link:hover{background:rgba(0,12,12,.9);box-shadow:0 0 15px rgba(231,201,120,.5)}
+@media (max-width:520px){.shopier-top-link{right:3%;top:9.1%;font-size:9px;padding:7px 9px;min-height:34px}}
 .collection-trigger{
  position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);z-index:7;
  width:min(76%,500px);min-height:52px;padding:13px 22px 12px;
@@ -141,6 +153,7 @@ body{font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
 <button class="hotspot cart-hotspot" id="cartBtn" aria-label="Sepeti aç"></button>
 <span id="cartBadge" class="cart-badge" aria-label="Sepetteki ürün adedi">0</span>
 <button class="hotspot account-hotspot" id="accountBtn" aria-label="Hesabı aç"></button>
+<a class="shopier-top-link" href="https://www.shopier.com/parfumzanvielle" target="_blank" rel="noopener noreferrer" aria-label="Shopier mağazasından alışveriş yap">SHOPIER’DEN ALIŞVERİŞ</a>
 <button class="collection-trigger" id="collectionBtn" type="button">KOLEKSİYONU KEŞFET</button>
 </main>
 
@@ -2174,6 +2187,9 @@ renderCart();
     </a>
     <a class="floating-contact-btn email" href="mailto:zanvelleparfum@gmail.com" aria-label="E-posta">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3.5 6 8.5 7 8.5-7"/></svg>
+    </a>
+    <a class="floating-contact-btn shopier" href="https://www.shopier.com/parfumzanvielle" target="_blank" rel="noopener noreferrer" aria-label="Shopier">
+      <span style="font:700 10px Arial,sans-serif;letter-spacing:.04em">SHOPIER</span>
     </a>
   </div>
   <button class="floating-contact-main" type="button" aria-label="İletişim seçeneklerini aç" aria-expanded="false">
