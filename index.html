@@ -2957,6 +2957,7 @@ async function publishSiteSettings(v,msg){const ok=await githubPublishSiteState(
 async function adminApplySettings(){
  const a=adminSettings();
  const ref=document.querySelector('.reference'); const vid=document.querySelector('#mainVideo'); const page=document.querySelector('.page');
+ if(ref&&!ref.dataset.originalSrc&&ref.src)ref.dataset.originalSrc=ref.src;
  if(ref){ if(a.mainImage&&!a.mainVideoEnabled) ref.src=a.mainImage; else if(!a.mainVideoEnabled && !a.mainImage) ref.removeAttribute('src'); }
  if(page)page.classList.toggle('has-main-video',!!a.mainVideoEnabled);
  if(vid)vid.style.display=a.mainVideoEnabled?'block':'none';
@@ -3124,7 +3125,7 @@ async function deleteMainVideoBlob(){try{await deleteLocalMainVideo()}catch(e){}
 async function applyStoredMainVideo(){
   const a=adminSettings(),vid=$('#mainVideo'),page=document.querySelector('.page'),ref=document.querySelector('.reference');
   if(!vid)return;
-  const fallback=()=>{if(page)page.classList.remove('has-main-video');vid.pause();vid.removeAttribute('src');vid.load();if(ref){ref.style.visibility='visible';ref.src=a.mainImage||ref.dataset.originalSrc||ref.src||'';}};
+  const fallback=()=>{if(page)page.classList.remove('has-main-video');vid.pause();vid.removeAttribute('src');vid.load();vid.style.display='none';if(ref){ref.style.visibility='visible';ref.style.display='block';if(!ref.dataset.originalSrc&&ref.src)ref.dataset.originalSrc=ref.src;ref.src=a.mainImage||ref.dataset.originalSrc||ref.src||'';}};
   vid.onerror=()=>{fallback();console.warn('ZANVIELLE ana video oynatılamadı; ana tasarıma geri dönüldü.',vid.error)};
   if(!a.mainVideoEnabled){fallback();return}
   try{
