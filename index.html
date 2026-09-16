@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>ZANVIELLE KAZAN — Yönetim</title>
+<style>
+:root{--bg:#050807;--panel:#0a100d;--gold:#e9c66b;--cream:#f3ead7;--muted:#aaa392;--line:rgba(233,198,107,.25);--danger:#d66b6b;--ok:#78c58b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0%,#172017 0,#050807 45%);color:var(--cream);font:14px Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+.login{min-height:100vh;display:grid;place-items:center;padding:20px}.loginbox{width:min(430px,100%);background:rgba(10,16,13,.96);border:1px solid var(--line);padding:34px;box-shadow:0 20px 80px #000}.brand{font:30px Georgia,serif;letter-spacing:.14em;color:var(--gold);text-align:center}.sub{text-align:center;color:var(--muted);margin:10px 0 28px;letter-spacing:.08em}
+input,select,textarea{width:100%;background:#070b09;color:var(--cream);border:1px solid var(--line);padding:13px;border-radius:4px;outline:none}textarea{min-height:110px;resize:vertical}.field{margin:0 0 14px}.field label{display:block;font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
+.btn{border:1px solid var(--line);background:#101612;color:var(--cream);padding:12px 16px;border-radius:4px}.btn.gold{background:linear-gradient(135deg,#f2ce6b,#bd9140);color:#090909;border-color:#f0cf70;font-weight:800}.btn.danger{border-color:rgba(214,107,107,.5);color:#efaaaa}.btn.ok{border-color:rgba(120,197,139,.5);color:#a7e0b4}
+.app{min-height:100vh}.top{position:sticky;top:0;z-index:10;background:rgba(5,8,7,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px}.top .brand{font-size:20px}.topright{display:flex;gap:8px;align-items:center}
+.layout{display:grid;grid-template-columns:235px 1fr;min-height:calc(100vh - 65px)}.side{border-right:1px solid var(--line);padding:18px;position:sticky;top:65px;height:calc(100vh - 65px)}.side button{display:block;width:100%;text-align:left;background:none;color:var(--muted);border:0;border-bottom:1px solid rgba(233,198,107,.08);padding:14px 10px}.side button.active,.side button:hover{color:var(--gold);background:rgba(233,198,107,.05)}
+main{padding:24px;width:min(1250px,100%)}.page{display:none}.page.active{display:block}.heading{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:22px}.heading h1{margin:0;font:32px Georgia,serif;color:var(--gold);letter-spacing:.05em}.heading p{color:var(--muted);margin:7px 0 0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}.stat,.card{background:linear-gradient(145deg,#0b110e,#080c0a);border:1px solid var(--line);padding:18px}.stat b{font:28px Georgia,serif;color:var(--gold);display:block}.stat span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card h3{margin:0 0 15px;color:var(--gold);font:19px Georgia,serif}.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.toolbar>*{width:auto}.tablewrap{overflow:auto;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;min-width:850px}th,td{padding:12px;border-bottom:1px solid rgba(233,198,107,.12);text-align:left;vertical-align:top}th{font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}td small{color:var(--muted)}.badge{display:inline-block;padding:5px 8px;border-radius:20px;font-size:10px;border:1px solid var(--line)}.pending{color:#e9c66b}.approved{color:var(--ok)}.rejected{color:var(--danger)}
+.empty{padding:35px;text-align:center;color:var(--muted);border:1px dashed var(--line)}.notice{padding:12px;border-left:2px solid var(--gold);background:rgba(233,198,107,.05);color:var(--muted);margin-bottom:15px;font-size:12px;line-height:1.6}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;place-items:center;z-index:50;padding:18px}.modal.show{display:grid}.modalbox{width:min(620px,100%);max-height:90vh;overflow:auto;background:#09100d;border:1px solid var(--line);padding:22px}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.modalhead h2{margin:0;color:var(--gold);font:24px Georgia,serif}.x{background:none;border:0;color:var(--cream);font-size:24px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);display:flex;overflow:auto;padding:5px}.side button{min-width:145px;border-bottom:0;text-align:center}.stats{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}main{padding:16px}.top{padding:12px}.top .brand{font-size:16px}}
+</style>
+</head>
+<body>
+<section id="login" class="login"><div class="loginbox">
+<div class="brand">ZANVIELLE</div><div class="sub">KAZAN · YÖNETİM PANELİ</div>
+<div class="notice">Bu yeni index.html yalnızca KAZAN yönetimi içindir. Veriler bu cihazın tarayıcısında tutulur.</div>
+<div class="field"><label>Yönetici şifresi</label><input id="loginPass" type="password" minlength="6" autocomplete="new-password" placeholder="En az 6 karakter"></div><button type="button" id="loginButton" class="btn gold" style="width:100%">GİRİŞ YAP</button><p id="loginMsg"></p>
+</div></section>
+<section id="app" class="app hidden"><header class="top"><div class="brand">ZANVIELLE <span style="font:11px Arial;color:var(--muted)">KAZAN ADMIN</span></div><div class="topright"><button class="btn" onclick="exportData()">VERİYİ DIŞA AKTAR</button><button class="btn" onclick="logout()">ÇIKIŞ</button></div></header>
+<div class="layout"><aside class="side">
+<button class="active" data-page="dashboard">GENEL BAKIŞ</button><button data-page="applications">BAŞVURULAR</button><button data-page="participants">KATILIMCILAR</button><button data-page="codes">KODLAR</button><button data-page="sales">SATIŞLAR / KOMİSYON</button><button data-page="settings">AYARLAR</button><button data-page="backup">YEDEK / AKTAR</button>
+</aside><main>
+<section id="dashboard" class="page active"><div class="heading"><div><h1>GENEL BAKIŞ</h1><p>ZANVIELLE KAZAN sisteminin yönetim merkezi.</p></div><button class="btn gold" onclick="openApplication()">+ BAŞVURU EKLE</button></div>
+<div class="stats"><div class="stat"><b id="sApps">0</b><span>Başvuru</span></div><div class="stat"><b id="sParticipants">0</b><span>Onaylı katılımcı</span></div><div class="stat"><b id="sCodes">0</b><span>Aktif kod</span></div><div class="stat"><b id="sCommission">0 TL</b><span>Toplam komisyon</span></div></div>
+<div class="grid"><div class="card"><h3>SİSTEM</h3><p style="color:var(--muted);line-height:1.7">Başvuru → onay → katılımcı → özel kod → satış kaydı → komisyon hesabı.</p></div><div class="card"><h3>HIZLI İŞLEMLER</h3><div class="row"><button class="btn" onclick="showPage('applications')">Başvurular</button><button class="btn" onclick="showPage('participants')">Katılımcılar</button></div><div class="row" style="margin-top:8px"><button class="btn" onclick="showPage('codes')">Kod oluştur</button><button class="btn" onclick="showPage('sales')">Satış ekle</button></div></div></div></section>
+<section id="applications" class="page"><div class="heading"><div><h1>BAŞVURULAR</h1><p>KAZAN programı başvurularını yönet.</p></div><button class="btn gold" onclick="openApplication()">+ BAŞVURU</button></div><div class="toolbar"><input id="appSearch" placeholder="Ad, kullanıcı adı veya e-posta ara" oninput="renderApplications()"><select id="appFilter" onchange="renderApplications()"><option value="">Tümü</option><option value="pending">Bekliyor</option><option value="approved">Onaylandı</option><option value="rejected">Reddedildi</option></select></div><div id="appTable"></div></section>
+<section id="participants" class="page"><div class="heading"><div><h1>KATILIMCILAR</h1><p>Onaylanan KAZAN katılımcıları.</p></div><button class="btn gold" onclick="openParticipant()">+ KATILIMCI</button></div><div id="participantTable"></div></section>
+<section id="codes" class="page"><div class="heading"><div><h1>KODLAR</h1><p>Katılımcılara özel paylaşım kodları.</p></div><button class="btn gold" onclick="openCode()">+ KOD OLUŞTUR</button></div><div id="codeTable"></div></section>
+<section id="sales" class="page"><div class="heading"><div><h1>SATIŞLAR / KOMİSYON</h1><p>Satışları kaydet ve komisyonu otomatik hesaplat.</p></div><button class="btn gold" onclick="openSale()">+ SATIŞ</button></div><div id="salesTable"></div></section>
+<section id="settings" class="page"><div class="heading"><div><h1>AYARLAR</h1><p>KAZAN sisteminin çalışma bilgileri.</p></div><button class="btn gold" onclick="saveSettings()">KAYDET</button></div><div class="grid"><div class="card"><h3>PROGRAM</h3><div class="field"><label>Program adı</label><input id="setName"></div><div class="field"><label>Varsayılan komisyon (%)</label><input id="setRate" type="number" min="0" max="100" step=".1"></div><div class="field"><label>Shopier bağlantısı</label><input id="setShopier" placeholder="https://..."></div><div class="field"><label>Açıklama</label><textarea id="setIntro"></textarea></div></div><div class="card"><h3>GÜVENLİK</h3><p style="color:var(--muted);line-height:1.7">Bu sürüm API anahtarı kullanmaz. Veriler localStorage'dadır. Gerçek Shopier siparişlerini kendiliğinden çekmez.</p><button class="btn danger" onclick="resetAll()">TÜM YEREL KAZAN VERİLERİNİ SİL</button></div></div></section>
+<section id="backup" class="page"><div class="heading"><div><h1>YEDEK / AKTAR</h1><p>Yönetim verilerini JSON olarak sakla veya geri yükle.</p></div></div><div class="card"><h3>YEDEKLEME</h3><button class="btn gold" onclick="exportData()">JSON YEDEĞİ İNDİR</button><hr style="border-color:var(--line);border-width:1px 0 0;margin:22px 0"><h3>GERİ YÜKLE</h3><input id="importFile" type="file" accept=".json,application/json"><button class="btn" style="margin-top:10px" onclick="importData()">YEDEĞİ YÜKLE</button></div></section>
+</main></div></section>
+<div id="modal" class="modal"><div class="modalbox"><div class="modalhead"><h2 id="modalTitle"></h2><button class="x" onclick="closeModal()">×</button></div><div id="modalBody"></div></div></div>
+<script>
+const KEY='zanvielle_kazan_admin_v3',AUTH='zanvielle_kazan_admin_auth_v3';
+const defaults={settings:{name:'ZANVIELLE KAZAN',rate:10,shopier:'',intro:'ZANVIELLE’i paylaş, kazanmaya başla.'},applications:[],participants:[],codes:[],sales:[]};
+let db=load();
+const clone=x=>JSON.parse(JSON.stringify(x)),uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const money=n=>new Intl.NumberFormat('tr-TR',{style:'currency',currency:'TRY'}).format(Number(n)||0);
+function load(){try{let x=JSON.parse(localStorage.getItem(KEY)||'null');return x?{...clone(defaults),...x,settings:{...defaults.settings,...(x.settings||{})}}:clone(defaults)}catch(e){return clone(defaults)}}
+function save(){localStorage.setItem(KEY,JSON.stringify(db));renderAll()}
+function login(){
+ const pass=document.getElementById('loginPass');
+ const msg=document.getElementById('loginMsg');
+ const loginScreen=document.getElementById('login');
+ const appScreen=document.getElementById('app');
+ const p=(pass.value||'').trim();
+
+ if(p.length<6){
+   msg.textContent='Şifre en az 6 karakter olmalı.';
+   return;
+ }
+
+ const encoded=btoa(unescape(encodeURIComponent(p)));
+ const saved=localStorage.getItem(AUTH);
+
+ if(!saved){
+   localStorage.setItem(AUTH,encoded);
+ }else if(saved!==encoded){
+   msg.textContent='Şifre hatalı.';
+   return;
+ }
+
+ msg.textContent='';
+ loginScreen.classList.add('hidden');
+ appScreen.classList.remove('hidden');
+ renderAll();
+}
+
+document.querySelectorAll('.side button').forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+function showPage(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.side button').forEach(x=>x.classList.toggle('active',x.dataset.page===id));renderAll()}
+function renderAll(){sApps.textContent=db.applications.length;sParticipants.textContent=db.participants.length;sCodes.textContent=db.codes.filter(x=>x.active!==false).length;sCommission.textContent=money(db.sales.reduce((a,x)=>a+Number(x.commission||0),0));renderApplications();renderParticipants();renderCodes();renderSales();setName.value=db.settings.name;setRate.value=db.settings.rate;setShopier.value=db.settings.shopier;setIntro.value=db.settings.intro}
+const empty=t=>`<div class="empty">${t}</div>`;
+function renderApplications(){let q=(appSearch?.value||'').toLowerCase(),f=appFilter?.value||'';let a=db.applications.filter(x=>(!f||x.status===f)&&(!q||[x.name,x.username,x.email].join(' ').toLowerCase().includes(q)));if(!a.length)return appTable.innerHTML=empty('Başvuru bulunmuyor.');appTable.innerHTML='<div class="tablewrap"><table><thead><tr><th>Başvuru</th><th>İletişim</th><th>Durum</th><th>İşlem</th></tr></thead><tbody>'+a.map(x=>`<tr><td><b>${esc(x.name)}</b><br><small>${esc(x.username)}</small></td><td>${esc(x.email)}<br>${esc(x.instagram)}</td><td><span class="badge ${x.status}">${x.status==='approved'?'ONAYLANDI':x.status==='rejected'?'REDDEDİLDİ':'BEKLİYOR'}</span></td><td>${x.status==='pending'?`<button class="btn ok" onclick="approveApp('${x.id}')">ONAYLA</button> <button class="btn danger" onclick="rejectApp('${x.id}')">REDDET</button>`:`<button class="btn" onclick="deleteApp('${x.id}')">SİL</button>`}</td></tr>`).join('')+'</tbody></table></div>'}
+function renderParticipants(){if(!db.participants.length)return participantTable.innerHTML=empty('Henüz katılımcı yok.');participantTable.innerHTML='<div class="tablewrap"><table><thead><tr><th>Katılımcı</th><th>E-posta</th><th>Kod</th><th>Komisyon</th><th>İşlem</th></tr></thead><tbody>'+db.participants.map(x=>{let c=db.codes.find(c=>c.participantId===x.id);return `<tr><td><b>${esc(x.name)}</b><br><small>${esc(x.username)}</small></td><td>${esc(x.email)}</td><td>${c?esc(c.code):'Kod yok'}</td><td>%${Number(x.rate??db.settings.rate)}</td><td><button class="btn gold" onclick="openCode('${x.id}')">KOD</button> <button class="btn danger" onclick="deleteParticipant('${x.id}')">SİL</button></td></tr>`}).join('')+'</tbody></table></div>'}
+function renderCodes(){if(!db.codes.length)return codeTable.innerHTML=empty('Henüz kod yok.');codeTable.innerHTML='<div class="tablewrap"><table><thead><tr><th>Kod</th><th>Katılımcı</th><th>Durum</th><th>İşlem</th></tr></thead><tbody>'+db.codes.map(x=>`<tr><td><b>${esc(x.code)}</b></td><td>${esc(db.participants.find(p=>p.id===x.participantId)?.name||'—')}</td><td>${x.active===false?'PASİF':'AKTİF'}</td><td><button class="btn" onclick="toggleCode('${x.id}')">${x.active===false?'AKTİFLEŞTİR':'PASİFLEŞTİR'}</button> <button class="btn danger" onclick="deleteCode('${x.id}')">SİL</button></td></tr>`).join('')+'</tbody></table></div>'}
+function renderSales(){if(!db.sales.length)return salesTable.innerHTML=empty('Henüz satış kaydı yok.');salesTable.innerHTML='<div class="tablewrap"><table><thead><tr><th>Tarih</th><th>Kod</th><th>Sipariş</th><th>Tutar</th><th>Komisyon</th><th>İşlem</th></tr></thead><tbody>'+db.sales.map(x=>`<tr><td>${new Date(x.date).toLocaleString('tr-TR')}</td><td>${esc(x.code)}</td><td>${esc(x.order||'—')}</td><td>${money(x.amount)}</td><td>${money(x.commission)}</td><td><button class="btn danger" onclick="deleteSale('${x.id}')">SİL</button></td></tr>`).join('')+'</tbody></table></div>'}
+function openModal(t,b){modalTitle.textContent=t;modalBody.innerHTML=b;modal.classList.add('show')}function closeModal(){modal.classList.remove('show')}
+function openApplication(){openModal('YENİ BAŞVURU','<div class="field"><label>Ad soyad</label><input id="fName"></div><div class="field"><label>Kullanıcı adı</label><input id="fUser"></div><div class="field"><label>E-posta</label><input id="fEmail"></div><div class="field"><label>Instagram</label><input id="fIg"></div><button class="btn gold" onclick="addApplication()">KAYDET</button>')}
+function addApplication(){if(!fName.value.trim())return;db.applications.push({id:uid(),name:fName.value.trim(),username:fUser.value.trim(),email:fEmail.value.trim(),instagram:fIg.value.trim(),status:'pending',created:Date.now()});save();closeModal()}
+function approveApp(id){let a=db.applications.find(x=>x.id===id);if(!a)return;a.status='approved';db.participants.push({id:uid(),name:a.name,username:a.username,email:a.email,rate:db.settings.rate});save()}
+function rejectApp(id){let a=db.applications.find(x=>x.id===id);if(a){a.status='rejected';save()}}function deleteApp(id){if(confirm('Başvuru silinsin mi?')){db.applications=db.applications.filter(x=>x.id!==id);save()}}
+function openParticipant(){openModal('YENİ KATILIMCI',`<div class="field"><label>Ad soyad</label><input id="pName"></div><div class="field"><label>Kullanıcı adı</label><input id="pUser"></div><div class="field"><label>E-posta</label><input id="pEmail"></div><div class="field"><label>Komisyon (%)</label><input id="pRate" type="number" value="${db.settings.rate}" min="0" max="100"></div><button class="btn gold" onclick="addParticipant()">KAYDET</button>`)}
+function addParticipant(){if(!pName.value.trim())return;db.participants.push({id:uid(),name:pName.value.trim(),username:pUser.value.trim(),email:pEmail.value.trim(),rate:Number(pRate.value||db.settings.rate)});save();closeModal()}
+function deleteParticipant(id){if(confirm('Katılımcı ve bağlı kodları silinsin mi?')){db.participants=db.participants.filter(x=>x.id!==id);db.codes=db.codes.filter(x=>x.participantId!==id);save()}}
+function openCode(pid=''){let o=db.participants.map(p=>`<option value="${p.id}" ${p.id===pid?'selected':''}>${esc(p.name)}</option>`).join('');openModal('KOD OLUŞTUR',`<div class="field"><label>Katılımcı</label><select id="cParticipant">${o}</select></div><div class="field"><label>Kod</label><input id="cCode" value="ZAN${Math.floor(100000+Math.random()*899999)}"></div><button class="btn gold" onclick="addCode()">KODU KAYDET</button>`)}
+function addCode(){if(!cParticipant.value||!cCode.value.trim())return;db.codes.push({id:uid(),participantId:cParticipant.value,code:cCode.value.trim().toUpperCase(),active:true});save();closeModal()}
+function toggleCode(id){let x=db.codes.find(x=>x.id===id);if(x){x.active=x.active===false;save()}}function deleteCode(id){if(confirm('Kod silinsin mi?')){db.codes=db.codes.filter(x=>x.id!==id);save()}}
+function openSale(){let o=db.codes.filter(x=>x.active!==false).map(c=>`<option value="${c.code}">${esc(c.code)}</option>`).join('');openModal('SATIŞ EKLE',`<div class="field"><label>Katılımcı kodu</label><select id="saleCode">${o}</select></div><div class="field"><label>Sipariş no</label><input id="saleOrder"></div><div class="field"><label>Satış tutarı (TL)</label><input id="saleAmount" type="number" min="0" step=".01"></div><button class="btn gold" onclick="addSale()">KAYDET</button>`)}
+function addSale(){let c=db.codes.find(x=>x.code===saleCode.value),p=c&&db.participants.find(x=>x.id===c.participantId),a=Number(saleAmount.value||0);if(!c||!p||a<=0)return alert('Kod ve satış tutarı gerekli.');db.sales.push({id:uid(),date:Date.now(),code:c.code,order:saleOrder.value.trim(),amount:a,commission:a*Number(p.rate??db.settings.rate)/100});save();closeModal()}
+function deleteSale(id){if(confirm('Satış silinsin mi?')){db.sales=db.sales.filter(x=>x.id!==id);save()}}
+function saveSettings(){db.settings={name:setName.value.trim()||'ZANVIELLE KAZAN',rate:Number(setRate.value||0),shopier:setShopier.value.trim(),intro:setIntro.value.trim()};save();alert('Ayarlar kaydedildi.')}
+function exportData(){let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(db,null,2)],{type:'application/json'}));a.download='zanvielle-kazan-yedek.json';a.click()}
+function importData(){let f=importFile.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{db=JSON.parse(r.result);save();alert('Yedek yüklendi.')}catch(e){alert('Geçersiz JSON.')}};r.readAsText(f)}
+function resetAll(){if(confirm('TÜM KAZAN VERİLERİ SİLİNSİN Mİ?')){localStorage.removeItem(KEY);db=clone(defaults);renderAll()}}
+if(localStorage.getItem(AUTH)){document.getElementById('login').classList.add('hidden');document.getElementById('app').classList.remove('hidden');renderAll()}
+</script>
+</body>
+</html>
