@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZANVIELLE — Extrait de Parfum</title>
+<style>
+:root{--bg:#070706;--cream:#f1e6d0;--gold:#d8b45a;--muted:#aaa18f;--line:rgba(216,180,90,.22);--panel:#10100d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#050505,#0b0a08 55%,#050505);color:var(--cream);font-family:Arial,sans-serif}.wrap{width:min(1180px,92%);margin:auto}
+a{text-decoration:none;color:inherit}.topline{overflow:hidden;white-space:nowrap;border-bottom:1px solid var(--line);border-top:1px solid var(--line);font-size:12px;letter-spacing:.14em;color:var(--gold)}.marquee{display:inline-block;padding:10px 0;animation:move 20s linear infinite}.marquee span{margin:0 28px}@keyframes move{to{transform:translateX(-50%)}}
+header{padding:25px 0 18px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(7,7,6,.92);backdrop-filter:blur(10px);z-index:20}.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font:32px Georgia,serif;letter-spacing:.15em;color:var(--gold)}.links{display:flex;gap:20px;font-size:13px;color:var(--muted)}.links a:hover{color:var(--gold)}
+.hero{padding:75px 0 55px;text-align:center}.eyebrow{color:var(--gold);letter-spacing:.18em;font-size:11px}.hero h1{font:clamp(44px,8vw,84px) Georgia,serif;margin:16px 0}.hero p{max-width:700px;margin:0 auto;color:var(--muted);line-height:1.8}.cta{display:inline-block;margin-top:28px;padding:14px 22px;border:1px solid var(--gold);color:#100f0a;background:linear-gradient(135deg,#f0d070,#b28733);font-weight:800}
+.section{padding:40px 0 70px}.section h2{font:34px Georgia,serif;color:var(--gold);margin:0 0 8px}.section>p{color:var(--muted);margin-top:0}.filters{display:flex;gap:8px;overflow:auto;margin:24px 0}.filters button{white-space:nowrap;background:transparent;border:1px solid var(--line);color:var(--cream);padding:10px 14px}.filters button.active,.filters button:hover{background:rgba(216,180,90,.1);border-color:var(--gold);color:var(--gold)}.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.card{background:linear-gradient(145deg,#11110e,#0b0b09);border:1px solid var(--line);padding:14px}.pic{aspect-ratio:1/1;background:#161611;display:grid;place-items:center;overflow:hidden}.pic img{width:100%;height:100%;object-fit:contain}.pic .ph{color:#645e51;font:16px Georgia,serif}.cat{font-size:10px;letter-spacing:.12em;color:var(--gold);margin-top:13px}.name{font:20px Georgia,serif;margin:8px 0}.meta{display:flex;justify-content:space-between;gap:10px;align-items:center}.price{color:var(--gold);font-weight:800}.stock{font-size:11px;color:var(--muted)}.buy{display:block;margin-top:12px;padding:11px;text-align:center;border:1px solid var(--line);background:#14140f}.buy:hover{border-color:var(--gold);color:var(--gold)}
+.about{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.aboutgrid{display:grid;grid-template-columns:1fr 1fr;gap:50px}.about p{color:var(--muted);line-height:1.9}.foot{padding:35px 0 50px;color:var(--muted);font-size:12px}.contact{display:flex;gap:12px;flex-wrap:wrap}.contact a{border:1px solid var(--line);padding:10px 12px}.status{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#111;border:1px solid var(--line);padding:10px 14px;display:none;z-index:40}
+@media(max-width:900px){.products{grid-template-columns:repeat(2,minmax(0,1fr))}.aboutgrid{grid-template-columns:1fr}.links{display:none}}@media(max-width:520px){.brand{font-size:24px}.hero{padding-top:50px}.products{grid-template-columns:1fr}.section{padding-bottom:45px}}
+</style>
+</head>
+<body>
+<div class="topline"><div class="marquee"><span id="ship">ÜCRETSİZ KARGO</span><span id="orig">%100 ORİJİNAL ESANSLAR</span><span>GÜVENLİ ÖDEME</span><span>HIZLI TESLİMAT</span><span id="ship2">ÜCRETSİZ KARGO</span><span>%100 ORİJİNAL ESANSLAR</span></div></div>
+<header><div class="wrap nav"><a class="brand" href="#top">ZANVIELLE</a><nav class="links"><a href="#collection">Koleksiyon</a><a href="#about">Hakkımızda</a><a href="#contact">İletişim</a></nav></div></header>
+<main id="top">
+<section class="hero"><div class="wrap"><div class="eyebrow">EXTRAIT DE PARFUM</div><h1>Kokunu keşfet.</h1><p>Premium parfüm koleksiyonumuzu keşfet. Her ürün için Shopier üzerinden güvenli satın alma bağlantısı kullanılır.</p><a class="cta" href="#collection">KOLEKSİYONU KEŞFET</a></div></section>
+<section id="collection" class="section"><div class="wrap"><h2>Koleksiyon</h2><p>Kategorini seç ve ürünleri incele.</p><div class="filters" id="filters"></div><div class="products" id="products"></div></div></section>
+<section id="about" class="section about"><div class="wrap aboutgrid"><div><h2>Hakkımızda</h2></div><div><p id="aboutText"></p></div></div></section>
+<section id="contact" class="section"><div class="wrap"><h2>İletişim</h2><p>Size ulaşabileceğimiz kanallar:</p><div class="contact" id="contactLinks"></div></div></section>
+</main><footer class="foot"><div class="wrap">© <span id="year"></span> ZANVIELLE. Tüm hakları saklıdır.</div></footer><div class="status" id="status"></div>
+<script>
+const state={category:'Tümü',products:[],settings:{}};
+const money=n=>new Intl.NumberFormat('tr-TR',{style:'currency',currency:'TRY'}).format(Number(n)||0);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function load(){
+  const r=await fetch('/api/store'); if(!r.ok) throw new Error('Mağaza verisi alınamadı.'); const d=await r.json();
+  state.products=d.products||[]; state.settings=d.settings||{}; render();
+}
+function render(){
+  ship.textContent=state.settings.shippingText||'ÜCRETSİZ KARGO'; orig.textContent=state.settings.originalText||'%100 ORİJİNAL ESANSLAR'; ship2.textContent=state.settings.shippingText||'ÜCRETSİZ KARGO';
+  aboutText.textContent=state.settings.about||''; year.textContent=new Date().getFullYear();
+  contactLinks.innerHTML='';
+  if(state.settings.whatsapp) contactLinks.insertAdjacentHTML('beforeend',`<a href="https://wa.me/${String(state.settings.whatsapp).replace(/\D/g,'')}" target="_blank">WhatsApp</a>`);
+  if(state.settings.instagram) contactLinks.insertAdjacentHTML('beforeend',`<a href="${esc(state.settings.instagram)}" target="_blank">Instagram</a>`);
+  if(state.settings.email) contactLinks.insertAdjacentHTML('beforeend',`<a href="mailto:${esc(state.settings.email)}">E-posta</a>`);
+  const cats=['Tümü',...new Set(state.products.map(p=>p.category).filter(Boolean))]; filters.innerHTML=cats.map(c=>`<button class="${c===state.category?'active':''}" onclick="setCat('${esc(c).replace(/'/g,"\\'")}')">${esc(c)}</button>`).join('');
+  const list=state.products.filter(p=>state.category==='Tümü'||p.category===state.category).sort((a,b)=>Number(b.stock>0)-Number(a.stock>0));
+  products.innerHTML=list.length?list.map(p=>`<article class="card"><div class="pic">${p.image?`<img src="${esc(p.image)}" alt="${esc(p.name)}">`:'<div class="ph">ZANVIELLE</div>'}</div><div class="cat">${esc(p.category||'')}</div><div class="name">${esc(p.name)}</div><div class="meta"><span class="price">${money(p.price)}</span><span class="stock">${Number(p.stock)>0?'Stokta':'Tükendi'}</span></div><a class="buy" href="${esc(p.shopierUrl||'#')}" ${p.shopierUrl?'target="_blank" rel="noopener"':''} onclick="return buy('${esc(p.id)}',${p.shopierUrl? 'true':'false'})">${p.shopierUrl?'SHOPIER İLE SATIN AL':'SATIŞ LİNKİ HENÜZ EKLENMEDİ'}</a></article>`).join(''):'<div style="color:#999">Henüz ürün eklenmemiş.</div>';
+}
+function setCat(c){state.category=c;render()}
+function buy(id,ok){if(ok)return true; show('Bu ürün için Shopier satış bağlantısı henüz tanımlanmamış.');return false}
+function show(t){status.textContent=t;status.style.display='block';clearTimeout(window._st);window._st=setTimeout(()=>status.style.display='none',2600)}
+load().catch(e=>show(e.message));
+</script>
+</body></html>
